@@ -9,13 +9,10 @@ Standards-Version: 3.9.6
 
 Package: firefox-bin
 Architecture: amd64 i386
-Depends: lsb-release,
-	${misc:Depends},
-	${shlibs:Depends}
-Recommends: ${support:Recommends},
-	libcanberra0,
-	libdbusmenu-glib4,
-	libdbusmenu-gtk4
+Depends: ${misc:Depends},
+	${shlibs:Depends},
+	curl, tar
+Recommends: flashplugin-nonfree
 Provides: www-browser,
 	iceweasel,
 	gnome-www-browser,
