@@ -1,0 +1,15 @@
+#!/bin/sh
+
+set -e
+
+#echo "firefox-bin postrm: $@"
+
+if [ "$1" = "purge" ]
+then
+	rm -rf /opt/firefox
+fi
+
+#DEBHELPER#
+
+exit 0
+
