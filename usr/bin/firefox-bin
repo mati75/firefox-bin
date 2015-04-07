@@ -1,5 +1,6 @@
 #!/bin/sh
-unset LD_PRELOAD
-LD_LIBRARY_PATH="/opt/firefox/"
-GTK_PATH=/usr/lib/gtk-2.0/
-exec /opt/firefox-bin/firefox "$@"
+if [ -e /opt/firefox-bin/firefox ]; then
+ exec /opt/firefox-bin/firefox "$@"
+else
+ xxx-terminal-emulator -e "echo 'firefox-bin not exist, run first firefox-bin-installer'"
+fi
