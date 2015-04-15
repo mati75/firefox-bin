@@ -1,2 +1,2 @@
 version=3
-ftp://ftp.mozilla.org/pub/mozilla.org/firefox/releases/latest/linux-x86_64/pl/firefox-(.+).tar.bz2
+http://ftp.mozilla.org/pub/mozilla.org/firefox/releases/latest/linux-x86_64/pl/firefox-(.+).tar.bz2
