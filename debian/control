@@ -4,14 +4,13 @@ Priority: optional
 Maintainer: Mateusz Łukasik <mati75@debian.org>
 Vcs-Git: git://github.com/mati75/firefox-bin.git
 Vcs-Browser: https://github.com/mati75/firefox-bin.git
-Build-Depends: debhelper (>= 9)
+Build-Depends: debhelper (>= 9), devscripts | uscan
 Standards-Version: 3.9.6
 
 Package: firefox-bin
 Architecture: amd64 i386
 Depends: ${misc:Depends},
-	${shlibs:Depends},
-	curl
+	${shlibs:Depends}
 Recommends: flashplugin-nonfree
 Provides: www-browser,
 	iceweasel,
