@@ -1,15 +1,10 @@
-#!/bin/sh
+#!/bin/sh -e
 
-set -e
-
-#echo "firefox-bin postrm: $@"
-
-if [ "$1" = "purge" ]
-then
-	rm -rf /opt/firefox-bin
+if [ "$1" = "remove" ]; then
+    dpkg-divert --package firefox-bin --rename --remove /usr/bin/firefox
 fi
 
-#DEBHELPER#
-
-exit 0
+# Automatically added by dh_installmenu
+if [ -x "`which update-menus 2>/dev/null`" ]; then update-menus ; fi
+# End automatically added section
 

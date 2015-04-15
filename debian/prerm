@@ -1,23 +1,14 @@
-#!/bin/sh
+#!/bin/sh -e
 
-set -e
+if [ "$1" = "remove" ] || [ "$1" = "deconfigure" ] ; then
+    update-alternatives --remove x-www-browser /usr/bin/firefox-bin
+    update-alternatives --remove gnome-www-browser /usr/bin/firefox-bin
+fi
 
-case "$1" in
-    remove|upgrade|deconfigure)
-	firefox-bin-installer --uninstall || true
-    ;;
-
-    failed-upgrade)
-    ;;
-
-    *)
-        echo "prerm called with unknown argument \`$1'" >&2
-        exit 1
-    ;;
-esac
+if [ "$1" = "remove" ]; then
+    rm -f /opt/firefox-bin/components/compreg.dat \
+          /opt/firefox-bin/components/xpti.dat
+    rm -rf /opt/firefox-bin/updates
+fi
 
 #DEBHELPER#
-
-exit 0
-
-

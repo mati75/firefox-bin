@@ -1,23 +1,22 @@
-#!/bin/sh
+#!/bin/sh -e
 
-set -e
+if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] ; then
+    update-alternatives --install /usr/bin/x-www-browser \
+        x-www-browser /usr/bin/firefox-bin 70 \
+        --slave /usr/share/man/man1/x-www-browser.1.gz \
+        x-www-browser.1.gz /usr/share/man/man1/firefox-bin.1.gz
+    update-alternatives --remove mozilla /usr/bin/firefox-bin
+    update-alternatives --install /usr/bin/gnome-www-browser \
+        gnome-www-browser /usr/bin/firefox-bin 70 \
+        --slave /usr/share/man/man1/gnome-www-browser.1.gz \
+        gnome-www-browser.1.gz /usr/share/man/man1/firefox-bin.1.gz
+fi
 
-case "$1" in
-    configure)
-	firefox-bin-installer --install || true
-    ;;
+if [ "$1" = "configure" ] ; then
+    rm -f /opt/firefox-bin/.autoreg \
+          /opt/firefox-bin/components/compreg.dat \
+          /opt/firefox-bin/components/xpti.dat
+    rm -rf /opt/firefox-bin/updates
+fi
 
-    abort-upgrade|abort-remove|abort-deconfigure)
-    ;;
-
-    *)
-        echo "postinst called with unknown argument \`$1'" >&2
-        exit 1
-    ;;
-esac
-
-#DEBHELPER#
-
-exit 0
-
-
+#DEBHELPER#1

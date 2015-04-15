@@ -1,0 +1,6 @@
+#!/bin/sh -e
+
+if [ "$1" = "upgrade" ] || [ "$1" = "install" ] ; then
+    dpkg-divert --package firefox-bin --divert /usr/bin/firefox.real --rename /usr/bin/firefox
+fi
+
