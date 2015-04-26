@@ -4,14 +4,10 @@ set -e
 
 if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] ; then
     update-alternatives --install /usr/bin/x-www-browser \
-        x-www-browser /usr/bin/firefox-bin 70 \
-        --slave /usr/share/man/man1/x-www-browser.1.gz \
-        x-www-browser.1.gz /usr/share/man/man1/firefox-bin.1.gz
+        x-www-browser /usr/bin/firefox-bin 70
     update-alternatives --remove mozilla /usr/bin/firefox-bin
     update-alternatives --install /usr/bin/gnome-www-browser \
-        gnome-www-browser /usr/bin/firefox-bin 70 \
-        --slave /usr/share/man/man1/gnome-www-browser.1.gz \
-        gnome-www-browser.1.gz /usr/share/man/man1/firefox-bin.1.gz
+        gnome-www-browser /usr/bin/firefox-bin 70
 fi
 
 if [ "$1" = "configure" ] ; then
