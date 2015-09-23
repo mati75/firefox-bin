@@ -7,14 +7,12 @@ ifeq ($(shell dpkg --print-architecture),amd64)
 	tar -jxvf firefox-*.tar.bz2 -C opt
 	mv opt/firefox opt/firefox-bin
 	rm -f firefox-*.tar.bz2
-else ifeq
-	($(shell dpkg --print-architecture),i386)
-	uscan --download --watchfile debian/watch.amd64 --download-current-version --destdir . --no-symlink
+else ifeq ($(shell dpkg --print-architecture),i386)
+	uscan --download --watchfile debian/watch.i386 --download-current-version --destdir . --no-symlink
 	tar -jxvf firefox-*.tar.bz2 -C opt
 	mv opt/firefox opt/firefox-bin
 	rm -f firefox-*.tar.bz2
-else
-	echo "architecture not specified, try for example i686 or x86_64\n"
+else "architecture not specified, try for example i686 or x86_64\n"
 endif
 
 clean:
