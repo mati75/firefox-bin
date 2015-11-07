@@ -16,4 +16,4 @@ if [ "$1" = "configure" ] ; then
     rm -rf /opt/firefox-bin/updates
 fi
 
-#DEBHELPER#1
+#DEBHELPER#
