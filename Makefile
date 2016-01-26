@@ -13,7 +13,8 @@ else ifeq ($(shell dpkg --print-architecture),i386)
 	tar -jxvf firefox-*.tar.bz2 -C opt
 	mv opt/firefox opt/firefox-bin
 	rm -f firefox-*.tar.bz2
-else "architecture not specified, try for example i686 or x86_64\n"
+else
+	@echo "architecture not specified, try for example i686 or x86_64\n"
 endif
 
 clean:
