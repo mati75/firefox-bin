@@ -1,4 +1,4 @@
-USCAN=debian/bin/uscan
+USCAN=/usr/bin/uscan
 
 all: download
 
