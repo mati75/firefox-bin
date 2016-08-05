@@ -2,5 +2,5 @@
 if [ -e /opt/firefox-bin/firefox ]; then
  exec /opt/firefox-bin/firefox "$@"
 else
- xxx-terminal-emulator -e "echo 'firefox-bin not exist, run first firefox-bin-installer'"
+ xxx-terminal-emulator -e "echo 'firefox-bin is not installed'"
 fi
